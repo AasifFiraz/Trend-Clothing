@@ -16,7 +16,7 @@ class Shop extends React.Component {
         return(
             <div className='shop-page'>
             {
-                products.filter((product, prodIdx) => prodIdx < 4).map(({id, ...otherProductComponents}) => (
+                products.map(({id, ...otherProductComponents}) => (
                     <ShopProductsPreview key={id} {...otherProductComponents} />
                 ))
             }

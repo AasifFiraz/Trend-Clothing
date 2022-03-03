@@ -9,8 +9,18 @@
       width: 100%;
       height: 95%;
       background-size: cover;
+      transition: transform .3s ease-out;
       background-position: center;
       margin-bottom: 5px;
+
+      &:hover{
+
+          &.product-img{
+            opacity: 0.8;
+            border: 1.5px solid #2c2c2c;
+            transform: translate(0, -5px);
+          }
+      }
     }
   
     .product-footer {
