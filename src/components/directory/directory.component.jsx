@@ -9,25 +9,25 @@ class Directory extends React.Component {
         this.state = {
             section: [{
             title: 'hats',
-            imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
+            imageUrl: '//i.ibb.co/cvpntL1/hats.png',
             id: 1,
             linkUrl: 'shop/hats'
           },
           {
             title: 'jackets',
-            imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
+            imageUrl: '//i.ibb.co/px2tCc3/jackets.png',
             id: 2,
             linkUrl: 'shop/jackets'
           },
           {
             title: 'sneakers',
-            imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
+            imageUrl: '//i.ibb.co/0jqHpnp/sneakers.png',
             id: 3,
             linkUrl: 'shop/sneakers'
           },
           {
             title: 'mens',
-            imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+            imageUrl: '//rb.gy/2c4nun',
             size: 'large',
             id: 5,
             linkUrl: 'shop/mens'
@@ -35,7 +35,7 @@ class Directory extends React.Component {
           },
           {
             title: 'womens',
-            imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+            imageUrl: '//rb.gy/uabpax',
             size: 'large',
             id: 4,
             linkUrl: 'shop/womens'
@@ -46,8 +46,8 @@ class Directory extends React.Component {
     render(){
         return(
             <div className="dir-menu">
-                {this.state.section.map(({id, title, imageUrl, size}) => (
-                    <MenuItem key={id} imageUrl={imageUrl} title={title.toUpperCase()} size={size} />
+                {this.state.section.map(({id, ...otherSectionProps}) => (
+                    <MenuItem key={id} {...otherSectionProps} />
                 ))
             }
             </div>
