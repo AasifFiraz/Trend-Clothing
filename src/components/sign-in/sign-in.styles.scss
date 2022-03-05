@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
+.sign-in{
+    margin-top: 5rem;
+    width: 22rem;
+    display: flex;
+    flex-direction: column;
+
+    span{
+        font-weight: 500;
+        font-size: 17px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    Form{
+        font-weight: lighter;
+        font-family: 'Poppins', sans-serif;
+    }
+}
