@@ -10,6 +10,7 @@
         height: 100%;
         width: 70px;
         padding: 25px;
+        box-sizing: content-box;
         cursor: pointer;
     }
   
@@ -22,6 +23,7 @@
   
       .option {
         color: #2c2c2c;
+        cursor: pointer;
         font-weight: 500;
         font-family: 'Roboto', sans-serif;
         text-decoration: none;

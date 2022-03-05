@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap');
 .sign-in{
     margin-top: 5rem;
-    width: 22rem;
+    width: 400px;
     display: flex;
     flex-direction: column;
 
@@ -15,5 +15,10 @@
     Form{
         font-weight: lighter;
         font-family: 'Poppins', sans-serif;
+    }
+
+    .buttons{
+        display: flex;
+        justify-content: space-between;
     }
 }
