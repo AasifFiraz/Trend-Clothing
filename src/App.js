@@ -1,13 +1,12 @@
 import React from 'react';
 import HomePage from './components/pages/homepage/homepage.component';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Header from './components/header/header.component';
-import { auth } from './components/firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './components/firebase/firebase.utils';
 import HatsPage from './hatspage.component';
 import SignInAndSignUpPage from './components/pages/sign-in-sign-up/sign-in-sign-up.component';
 import Shop from './components/shop/shop.component';
 import './App.css';
-
 
 class App extends React.Component {
   constructor(){
@@ -21,10 +20,26 @@ class App extends React.Component {
   unSubscribeFromAuth = null;
 
   componentDidMount(){
-    this.unSubscribeFromAuth = auth.onAuthStateChanged((user) => {
-      this.setState({currentUser: user})
+    this.unSubscribeFromAuth = auth.onAuthStateChanged( async (userAuth) => {
 
-      console.log(user)
+      if(userAuth){
+        const userRef = await createUserProfileDocument(userAuth);
+      
+        userRef.onSnapshot((snapshot) => {
+          this.setState({
+            currentUser: {
+              id: snapshot.id,
+              ...snapshot.data()
+            }
+          }, () => {
+            console.log(this.state)
+          })
+        })
+      }else{
+        this.setState({currentUser: userAuth});
+        console.log(this.state)
+      }
+      
     })
   }
 

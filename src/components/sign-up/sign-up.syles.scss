@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap');
-.sign-in{
-    margin-top: 4.5rem;
-    width: 400px;
+.sign-up {
     display: flex;
+    margin-top: 5rem;
     flex-direction: column;
-
+    width: 380px;
+  
     span{
         font-weight: 500;
         font-size: 17px;
@@ -16,8 +16,8 @@
         font-family: 'Poppins', sans-serif;
     }
 
-    .buttons{
-        display: flex;
-        justify-content: space-between;
+    .title {
+      margin: 10px 0;
     }
-}
+  }
+  
