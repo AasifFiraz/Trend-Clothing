@@ -1,4 +1,3 @@
-import { act } from "@testing-library/react";
 import { cartActionTypes } from "./cart.types";
 import { addItemsToCart } from "./cart.utils";
 const INITIAL_STATE = {
