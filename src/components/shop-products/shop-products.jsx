@@ -8,9 +8,9 @@ const ShopProductsPreview = ({title, items}) => {
             <h1 className='title'>{title.toUpperCase()}</h1>
             <div className='shop-products'>
                 {
-                    items.filter((product) => product.id <= 4)
-                    .map(({id, ...otherProductComponent}) => (
-                        <ProductComponent key={id} {...otherProductComponent} />
+                    items.filter((item, idx) => idx < 4)
+                    .map((item) => (
+                        <ProductComponent key={item.id} item={item} />
                     ))
                 }
             </div>
