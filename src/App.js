@@ -7,7 +7,6 @@ import Header from './components/header/header.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentUser } from './redux/user/user.selectors';
-import HatsPage from './hatspage.component';
 import CheckoutPage from './components/pages/checkout/checkout.component';
 import SignInAndSignUpPage from './components/pages/sign-in-sign-up/sign-in-sign-up.component';
 import Shop from './components/shop/shop.component';
