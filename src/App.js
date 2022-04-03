@@ -1,6 +1,6 @@
 import React from 'react';
 import HomePage from './components/pages/homepage/homepage.component';
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
 import Header from './components/header/header.component';
@@ -46,13 +46,22 @@ class App extends React.Component {
   return(
     <div>
     <Header />
-    <Routes>
-      <Route path='/' element={< HomePage />} />
-      <Route path='/shop' element={< Shop/>} />
-      <Route path='/shop/hats' element={< HatsPage/>} />
-      <Route path='/signin' element={this.props.currentUser ? (<Navigate to='/'/>) : (< SignInAndSignUpPage/>)} />
-      <Route path='/checkout' element={< CheckoutPage/>} />
-    </Routes>
+    <Switch>
+      <Route exact path='/' component={HomePage} />
+      <Route path='/shop' component={Shop} />
+      <Route
+      exact
+      path='/signin'
+      render={() =>
+        this.props.currentUser ? (
+          <Redirect to='/' />
+        ) : (
+          <SignInAndSignUpPage />
+        )
+      }
+    />
+      <Route exact path='/checkout' component={CheckoutPage} />
+    </Switch>
     </div>
     )
   }
