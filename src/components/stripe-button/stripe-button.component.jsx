@@ -12,7 +12,7 @@ const StripeCheckoutButton = ({ price }) => {
 
     return (
         <StripeCheckout 
-        label="Pay Now You Bugger"
+        label="Pay Now ⭐"
         bitcoin
         name="Trend Clothing Ltd"
         billingAddress
