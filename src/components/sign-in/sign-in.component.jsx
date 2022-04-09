@@ -1,10 +1,17 @@
 import React from 'react';
 import FormInput from '../form-input/form-input.component';
 import { auth ,signInWithGoogle } from '../../firebase/firebase.utils';
+import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import CustomButton from '../custom-button/custom-button.component';
-import './sign-in.styles.scss';
+import { SignInContainer, SignInButtonComponent,SignInFormContainer, SignInSpanText } from './sign-in.styles';
+
+const SignInGoogleButtonComponent = styled(FontAwesomeIcon)`
+    font-size: 15px;
+    position: relative;
+    right: 10px;
+`
 
 class SignIn extends React.Component {
     constructor(props){
@@ -38,27 +45,27 @@ class SignIn extends React.Component {
 
     render(){
         return(
-            <div className='sign-in'>
+            <SignInContainer>
                 <h2>Already Have an Account?</h2>
-                <span>Sign In</span>
+                <SignInSpanText>Sign In</SignInSpanText>
 
-                <form onSubmit={this.handleSubmit}>
+                <SignInFormContainer onSubmit={this.handleSubmit}>
                     <FormInput name='email' type='email' value={this.state.email} label='Email' handleChange={this.handleChange} required/>
 
                     <FormInput name='password' type='password' value={this.state.password} label='Password' handleChange={this.handleChange} required />
 
-                    <div className="buttons">
+                    <SignInButtonComponent>
                     <CustomButton type='submit'>
                         Sign In
                     </CustomButton>
                     <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-                        <FontAwesomeIcon icon={faGoogle} className="google-icon" />
+                        <SignInGoogleButtonComponent icon={faGoogle} />
                         Sign In With Google
                     </CustomButton>
-                    </div>
+                    </SignInButtonComponent>
                     
-                </form>
-            </div>
+                </SignInFormContainer>
+            </SignInContainer>
         )
     }
 }

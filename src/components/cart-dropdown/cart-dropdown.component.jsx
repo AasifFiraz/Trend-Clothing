@@ -5,28 +5,28 @@ import CustomButton from "../custom-button/custom-button.component";
 import CartItem from "../cart-item/cart-item.component";
 import { createStructuredSelector } from "reselect";
 import { ToggleCartHidden } from "../../redux/cart/cart.actions";
-
 import { selectCartItems } from "../../redux/cart/cart.selector";
-import './cart-dropdown.styles.scss';
+import { CartDropDownContainer, CartItemsContainer, EmptyMessageComponent } from "./cart-dropdown.styles";
 
 const CartDropDown = ({cartItems, dispatch, history}) => {
     return(
-    <div className="cart-dropdown">
-        <div className="cart-items">
+    <CartDropDownContainer>
+        <CartItemsContainer>
         {
             cartItems.length > 0 ? 
+            
             cartItems.map((cartItem) => (
                 <CartItem key={cartItem.id} item={cartItem} />
             ))
             : 
-            <span className="empty-message">Your Cart is Empty</span>
+            <EmptyMessageComponent>Your Cart is Empty</EmptyMessageComponent>
         }
-        </div>
+        </CartItemsContainer>
         <CustomButton invertedBtn onClick={() => {
             history.push('/checkout')
             dispatch(ToggleCartHidden())
         }}>GO TO CHECKOUT</CustomButton>
-        </div>
+    </CartDropDownContainer>
     )
 }
 

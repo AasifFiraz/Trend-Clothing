@@ -1,18 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 import { createStructuredSelector } from "reselect";
 import ShopProductsPreview from "../shop-products/shop-products";
 import { selectShopProducts } from "../../redux/shop/shop.selectors";
-import './products-overview.styles.scss'
+
+const ProductsOverviewContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`
 
 const ProductsOverview = ({products}) => (
-    <div className="products-overview">
+    <ProductsOverviewContainer>
     {
         products.map(({id, ...otherProductComponents}) => (
             <ShopProductsPreview key={id} {...otherProductComponents} />
         ))
     }
-    </div>
+    </ProductsOverviewContainer>
 )
 
 const mapStateToProps = createStructuredSelector({

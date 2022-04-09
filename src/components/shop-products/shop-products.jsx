@@ -1,20 +1,21 @@
 import React from 'react'
 import ProductComponent from '../product-component/product-component'
-import './shop-products.scss'
+import { ProductsPreviewContainer, ShopProductsContainer, TitleComponent } from './shop-products.styles';
+
 
 const ShopProductsPreview = ({title, items, routeName, history}) => {
     return (
-        <div className='products-preview'>
-            <h1 className='title' onClick={() => history.push(`${routeName}`)}>{title.toUpperCase()}</h1>
-            <div className='shop-products'>
+        <ProductsPreviewContainer>
+            <TitleComponent onClick={() => history.push(`${routeName}`)}>{title.toUpperCase()}</TitleComponent>
+            <ShopProductsContainer>
                 {
                     items.filter((item, idx) => idx < 4)
                     .map((item) => (
                         <ProductComponent key={item.id} item={item} />
                     ))
                 }
-            </div>
-        </div>
+            </ShopProductsContainer>
+        </ProductsPreviewContainer>
     )
 }
 

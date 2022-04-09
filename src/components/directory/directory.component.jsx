@@ -1,18 +1,25 @@
 import React from "react";
-import './directory.styles.scss'
+import styled from "styled-components";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectDirectorySections } from "../../redux/directory/directory.selectors";
 import MenuItem from "../menu-item/menu-item.component";
 
+const DirectoryMenuContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-between;
+`
+
 const Directory = ({sections}) => {
   return(
-    <div className="dir-menu">
+    <DirectoryMenuContainer>
       {sections.map(({id, ...otherSectionProps}) => (
           <MenuItem key={id} {...otherSectionProps} />
       ))
       }
-    </div>
+    </DirectoryMenuContainer>
   )
 }
 
