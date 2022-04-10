@@ -3,25 +3,25 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import { createStructuredSelector } from "reselect";
 import ShopProductsPreview from "../shop-products/shop-products";
-import { selectShopProducts } from "../../redux/shop/shop.selectors";
+import { selectCollectionsForPreview  } from "../../redux/shop/shop.selectors";
 
 const ProductsOverviewContainer = styled.div`
     display: flex;
     flex-direction: column;
 `
 
-const ProductsOverview = ({products}) => (
+const ProductsOverview = ({collections}) => (
     <ProductsOverviewContainer>
     {
-        products.map(({id, ...otherProductComponents}) => (
-            <ShopProductsPreview key={id} {...otherProductComponents} />
+        collections.map(({id, ...otherCollectionProps }) => (
+            <ShopProductsPreview key={id} {...otherCollectionProps } />
         ))
     }
     </ProductsOverviewContainer>
 )
 
 const mapStateToProps = createStructuredSelector({
-    products: selectShopProducts
+    collections: selectCollectionsForPreview
 })
 
 export default connect(mapStateToProps)(ProductsOverview);
